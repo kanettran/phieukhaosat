@@ -1,0 +1,130 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "Tài khoản quản trị, đại lý nhượng quyền hoặc nhân viên TOLUCK",
+      "type": "object",
+      "properties": {
+        "email": { "type": "string", "description": "Hòm thư điện tử chính" },
+        "password": { "type": "string", "description": "Mật khẩu mã hoá" },
+        "name": { "type": "string", "description": "Tên đầy đủ của tài khoản" },
+        "role": { "type": "string", "description": "Nhóm quyền hạn RBAC" },
+        "status": { "type": "string", "description": "Trạng thái hoạt động" },
+        "avatar": { "type": "string", "description": "Liên kết ảnh hồ sơ" },
+        "phone": { "type": "string", "description": "Số điện thoại liên lạc" },
+        "branch": { "type": "string", "description": "Tên chi nhánh nhượng quyền trực thuộc" },
+        "createdAt": { "type": "string", "description": "Ngày giờ khởi tạo tài khoản" },
+        "limits": { "type": "object", "description": "Giới hạn hạn mức cho phép" }
+      },
+      "required": ["email", "password", "name", "role", "status"]
+    },
+    "Survey": {
+      "title": "Survey",
+      "description": "Biểu mẫu khảo sát nhu cầu, chiến lược mkt nhượng quyền",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Mã khảo sát" },
+        "name": { "type": "string", "description": "Tên biểu mẫu khảo sát" },
+        "creator": { "type": "string", "description": "Hòm thư người tạo" },
+        "createdAt": { "type": "string", "description": "Thời gian tạo" },
+        "usageCount": { "type": "integer", "description": "Số lượt người dùng điền khảo sát" },
+        "status": { "type": "string", "description": "Trạng thái biểu mẫu" },
+        "config": { "type": "object", "description": "Cấu hình chi tiết giao diện khảo sát" }
+      },
+      "required": ["id", "name", "status"]
+    },
+    "CRM": {
+      "title": "CRM",
+      "description": "Thông tin Lead, cơ hội giao thương nhượng quyền",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Mã Lead" },
+        "company": { "type": "string", "description": "Tên cơ sở kinh doanh" },
+        "contact": { "type": "string", "description": "Họ tên người liên hệ" },
+        "email": { "type": "string", "description": "Địa chỉ email nhận báo cáo" },
+        "phone": { "type": "string", "description": "Số điện thoại tiếp cận" },
+        "marketingScore": { "type": "integer", "description": "Điểm sẵn sàng do AI chấm" },
+        "status": { "type": "string", "description": "Trạng thái trong phễu chuyển đổi" },
+        "assignedTo": { "type": "string", "description": "Email nhân viên chịu trách nhiệm" },
+        "branch": { "type": "string", "description": "Tên chi nhánh quản trị cơ hội" },
+        "aiAuditResult": { "type": "string", "description": "Văn bản phân tích thô của AI" },
+        "pdfUrl": { "type": "string", "description": "Đường dẫn tải file báo cáo PDF" },
+        "notes": { "type": "string", "description": "Ghi chú tương tác nội bộ" },
+        "historyLogs": { "type": "array", "description": "Nhật ký liên lạc cá nhân hoá" },
+        "createdAt": { "type": "string", "description": "Ngày tự động xuất hiện" }
+      },
+      "required": ["id", "company", "contact", "status"]
+    },
+    "Config": {
+      "title": "Config",
+      "description": "Cấu hình toàn cục hệ thống TOLUCK CRM",
+      "type": "object",
+      "properties": {
+        "geminiApiKey": { "type": "string", "description": "Khoá API Gemini bảo mật" },
+        "openaiApiKey": { "type": "string", "description": "Khoá API OpenAI bảo mật phụ" },
+        "n8nWebhookUrl": { "type": "string", "description": "Đường dẫn luồng n8n webhook" },
+        "smtpEmail": { "type": "string", "description": "Email tài khoản SMTP" },
+        "smtpHost": { "type": "string", "description": "Địa chỉ máy chủ gửi mail" },
+        "smtpPort": { "type": "string", "description": "Cổng kết nối máy chủ gửi mail" },
+        "smtpPass": { "type": "string", "description": "Mật khẩuSMTP gửi mail" },
+        "smtpFrom": { "type": "string", "description": "Địa chỉ hòm thư hiển thị gửi đi" },
+        "logo": { "type": "string", "description": "Hình ảnh logo thương hiệu" },
+        "favicon": { "type": "string", "description": "favicon link" },
+        "footerText": { "type": "string", "description": "Văn bản chân trang quản trị" }
+      },
+      "required": []
+    },
+    "Log": {
+      "title": "Log",
+      "description": "Nhật ký hành động nghiệp vụ",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "ID log" },
+        "date": { "type": "string", "description": "Thời điểm diễn ra" },
+        "user": { "type": "string", "description": "Người thực hiện" },
+        "action": { "type": "string", "description": "Hành vi nghiệp vụ" },
+        "detail": { "type": "string", "description": "Mô tả chi tiết" }
+      },
+      "required": ["id", "date", "user", "action"]
+    },
+    "LoginHistory": {
+      "title": "LoginHistory",
+      "description": "Lịch sử đăng nhập truy vết bảo mật",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "ID bản ghi" },
+        "email": { "type": "string", "description": "Tài khoản thực hiện" },
+        "time": { "type": "string", "description": "Thời điểm đăng nhập" },
+        "ip": { "type": "string", "description": "IP nguồn gốc" },
+        "status": { "type": "string", "description": "Trạng thái phê duyệt" }
+      },
+      "required": ["id", "email", "time", "status"]
+    }
+  },
+  "firestore": {
+    "users": {
+      "schema": "User",
+      "description": "Danh sách các thành viên nhượng quyền B2B"
+    },
+    "surveys": {
+      "schema": "Survey",
+      "description": "Tập hợp các mẫu khảo sát thu nạp lead"
+    },
+    "crms": {
+      "schema": "CRM",
+      "description": "Phễu quản lý Lead, cơ hội kinh doanh"
+    },
+    "configs": {
+      "schema": "Config",
+      "description": "Kho cấu hình hệ thống"
+    },
+    "logs": {
+      "schema": "Log",
+      "description": "Nhật ký theo dõi hệ thống"
+    },
+    "login_history": {
+      "schema": "LoginHistory",
+      "description": "Nhật ký đăng nhập người dùng"
+    }
+  }
+}

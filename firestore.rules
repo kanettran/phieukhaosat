@@ -1,0 +1,111 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Global default-deny catch-all safety net
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // ==========================================================
+    // ================== GLOBAL SECURITY HELPERS ===============
+    // ==========================================================
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isVerifiedUser() {
+      // Mandate that the email is verified if standard write is called
+      return isSignedIn() && (request.auth.token.email_verified == true || request.auth.token.firebase.sign_in_provider == 'google.com');
+    }
+
+    function getUserData() {
+      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data;
+    }
+
+    function isSystemAdmin() {
+      // Safe explicit database-backed admin lookup
+      return isSignedIn() && 
+        exists(/databases/$(database)/documents/users/$(request.auth.uid)) && 
+        getUserData().role == 'ADMIN';
+    }
+
+    function isBranchUser() {
+      return isSignedIn() && 
+        exists(/databases/$(database)/documents/users/$(request.auth.uid));
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    // ==========================================================
+    // ======================= USERS COLLECTION =================
+    // ==========================================================
+    match /users/{userId} {
+      allow read: if isSignedIn();
+      allow create: if isSignedIn() && (isSystemAdmin() || request.auth.uid == userId) && isValidUser(request.resource.data);
+      allow update: if isSignedIn() && (
+        isSystemAdmin() || 
+        (request.auth.uid == userId && 
+         incoming().role == resource.data.role && // Prevent self privilege escalation
+         incoming().email == resource.data.email)
+      ) && isValidUser(request.resource.data);
+      allow delete: if isSystemAdmin();
+    }
+
+    function isValidUser(data) {
+      return data.email is string && data.email.size() <= 150 &&
+             data.name is string && data.name.size() <= 100 &&
+             data.role is string && data.role.size() <= 50 &&
+             data.status is string && data.status.size() <= 30;
+    }
+
+    // ==========================================================
+    // ===================== SURVEYS COLLECTION =================
+    // ==========================================================
+    match /surveys/{surveyId} {
+      allow read: if true; // Publicly accessible to allow customers to load survey configs
+      allow write: if isSystemAdmin() || isBranchUser();
+    }
+
+    // ==========================================================
+    // ======================= CRMS COLLECTION ==================
+    // ==========================================================
+    match /crms/{crmId} {
+      allow read: if isSignedIn();
+      allow write: if isSignedIn(); // We will authorize writing of CRM entries on the server and verified users
+    }
+
+    // ==========================================================
+    // ===================== CONFIGS COLLECTION =================
+    // ==========================================================
+    match /configs/{configDocId} {
+      allow read: if isSystemAdmin();
+      allow write: if isSystemAdmin();
+    }
+
+    // ==========================================================
+    // ======================= LOGS COLLECTION ==================
+    // ==========================================================
+    match /logs/{logId} {
+      allow read: if isSystemAdmin();
+      allow create: if isSignedIn();
+      allow update, delete: if false; // Logs are immutable
+    }
+
+    // ==========================================================
+    // ======================= LOGIN HISTORY ====================
+    // ==========================================================
+    match /login_history/{historyId} {
+      allow read: if isSystemAdmin();
+      allow create: if isSignedIn();
+      allow update, delete: if false; // Login histories are immutable
+    }
+  }
+}

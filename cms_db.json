@@ -1,0 +1,299 @@
+{
+  "users": [
+    {
+      "email": "admin@toluck.vn",
+      "password": "Admin@2026",
+      "name": "Trần Kim Hưng",
+      "role": "ADMIN",
+      "status": "Active",
+      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100",
+      "phone": "0988663129",
+      "branch": "Tổng bộ TOLUCK",
+      "createdAt": "2026-06-01",
+      "limits": {
+        "surveys": 100,
+        "aiAudits": 100,
+        "crms": 500,
+        "expDate": "2030-12-31"
+      }
+    },
+    {
+      "email": "ceo@toluck.vn",
+      "password": "Ceo@2026",
+      "name": "Thuý Võ",
+      "role": "CEO",
+      "status": "Active",
+      "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100",
+      "phone": "0963484365",
+      "branch": "Tổng bộ TOLUCK",
+      "createdAt": "2026-06-01",
+      "limits": {
+        "surveys": 20,
+        "aiAudits": 20,
+        "crms": 1000,
+        "expDate": "2030-12-31"
+      }
+    },
+    {
+      "email": "sales.fr@toluck.vn",
+      "password": "Sales@2026",
+      "name": "Võ Thị Thanh Uyên",
+      "role": "GIÁM ĐỐC KINH DOANH NHƯỢNG QUYỀN",
+      "status": "Active",
+      "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100",
+      "phone": "0933444555",
+      "branch": "TP. Hồ Chí Minh",
+      "createdAt": "2026-06-02",
+      "limits": {
+        "surveys": 20,
+        "aiAudits": 20,
+        "crms": 100,
+        "expDate": "2026-12-31"
+      }
+    },
+    {
+      "email": "staff@toluck.vn",
+      "password": "Staff@2026",
+      "name": "Phạm Đăng Khoa (Nhân Viên HN)",
+      "role": "NHÂN VIÊN",
+      "status": "Active",
+      "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100",
+      "phone": "0944555666",
+      "branch": "Hà Nội",
+      "createdAt": "2026-06-03",
+      "limits": {
+        "surveys": 10,
+        "aiAudits": 10,
+        "crms": 50,
+        "expDate": "2026-08-30"
+      }
+    },
+    {
+      "email": "customer@gmail.com",
+      "password": "Customer@2026",
+      "name": "Nguyễn Văn Khách (Khách hàng An Nam)",
+      "role": "KHÁCH HÀNG",
+      "status": "Active",
+      "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100",
+      "phone": "0955666777",
+      "branch": "Khách vãng lai",
+      "createdAt": "2026-06-04",
+      "limits": {
+        "surveys": 2,
+        "aiAudits": 2,
+        "crms": 2,
+        "expDate": "2026-07-15"
+      }
+    },
+    {
+      "email": "daihai30@gmail.com",
+      "password": "123456",
+      "name": "Dương Đại Tây",
+      "role": "KHÁCH HÀNG",
+      "status": "Active",
+      "avatar": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100",
+      "phone": "0338330270",
+      "branch": "Khách khảo sát",
+      "createdAt": "2026-06-04",
+      "limits": {
+        "surveys": 2,
+        "aiAudits": 2,
+        "crms": 10,
+        "expDate": "2026-12-31"
+      }
+    }
+  ],
+  "surveys": [
+    {
+      "id": "survey-1",
+      "name": "Khảo sát Nhu cầu Phòng Marketing Thuê Ngoài - TOLUCK",
+      "creator": "admin@toluck.vn",
+      "createdAt": "2026-06-01",
+      "usageCount": 45,
+      "status": "Hoạt động",
+      "config": {
+        "logo": "https://toluck.com.vn/logo.png",
+        "colorTheme": "#1e3a8a",
+        "emailFrom": "info@toluck.com.vn",
+        "promptAi": "Bạn là chuyên gia tư vấn chiến lược Marketing của TOLUCK Agency...",
+        "webhookUrl": "https://ai.toluck.com.vn/webhook/phantichkhachhang"
+      }
+    },
+    {
+      "id": "survey-2",
+      "name": "Khảo sát Đánh giá Sức Khỏe Thương Hiệu FMCG 2026",
+      "creator": "ceo@toluck.vn",
+      "createdAt": "2026-06-02",
+      "usageCount": 16,
+      "status": "Hoạt động",
+      "config": {
+        "logo": "https://toluck.com.vn/logo.png",
+        "colorTheme": "#0d9488",
+        "emailFrom": "info@toluck.com.vn",
+        "promptAi": "Bạn là chuyên gia tư vấn sức khỏe thương hiệu...",
+        "webhookUrl": "https://ai.toluck.com.vn/webhook/fmcg-audit"
+      }
+    }
+  ],
+  "crms": [],
+  "system_config": {
+    "geminiApiKey": "MY_GEMINI_API_KEY",
+    "openaiApiKey": "",
+    "n8nWebhookUrl": "https://ai.toluck.com.vn/webhook/phantichkhachhang",
+    "smtpEmail": "no_reply@toluck.com.vn",
+    "smtpHost": "mx07.7host.vn",
+    "smtpPort": "465",
+    "smtpPass": "CONFIGURED_IN_ENV",
+    "smtpFrom": "no_reply@toluck.com.vn",
+    "logo": "https://toluck.com.vn/logo.png",
+    "favicon": "https://toluck.com.vn/favicon.ico",
+    "footerText": "TOLUCK © 2026 — PHÒNG MARKETING THUÊ NGOÀI",
+    "companyPhone": "0963 484 365",
+    "companyIntro": "Biểu mẫu này giúp TOLUCK đánh giá hiện trạng marketing, xác định cơ hội tăng trưởng và xây dựng chiến lược phù hợp cho doanh nghiệp của bạn.",
+    "companyEmail": "info@toluck.vn"
+  },
+  "logs": [
+    {
+      "id": "log-1780563480541",
+      "date": "2026-06-04 08:58:00",
+      "user": "admin@toluck.vn",
+      "action": "Đăng nhập",
+      "detail": "Đăng nhập thành công với vai trò ADMIN từ thiết bị."
+    },
+    {
+      "id": "log-1780562690523",
+      "date": "2026-06-04 08:44:50",
+      "user": "admin@toluck.vn",
+      "action": "Đăng nhập",
+      "detail": "Đăng nhập thành công với vai trò ADMIN từ thiết bị."
+    },
+    {
+      "id": "log-1780560698734",
+      "date": "2026-06-04 08:11:38",
+      "user": "daihai30@gmail.com",
+      "action": "Đăng ký",
+      "detail": "Đăng ký tài khoản khảo sát thành công."
+    },
+    {
+      "id": "log-1780557086441",
+      "date": "2026-06-04 07:11:26",
+      "user": "admin@toluck.vn",
+      "action": "Sửa người dùng",
+      "detail": "Đã chỉnh sửa thông tin người dùng admin@toluck.vn (Trần Kim Hưng)"
+    },
+    {
+      "id": "log-1780557039360",
+      "date": "2026-06-04 07:10:39",
+      "user": "admin@toluck.vn",
+      "action": "Đăng nhập",
+      "detail": "Đăng nhập thành công với vai trò ADMIN từ thiết bị."
+    },
+    {
+      "id": "log-1780555288535",
+      "date": "2026-06-04 06:41:28",
+      "user": "admin@toluck.vn",
+      "action": "Cập nhật hệ thống",
+      "detail": "Thay đổi toàn bộ tham số chìa khóa AI, Webhook n8n nộp lead và cổng SMTP."
+    },
+    {
+      "id": "log-1780554470100",
+      "date": "2026-06-04 06:27:50",
+      "user": "admin@toluck.vn",
+      "action": "Sửa người dùng",
+      "detail": "Đã chỉnh sửa thông tin người dùng sales.fr@toluck.vn (Võ Thị Thanh Uyên)"
+    },
+    {
+      "id": "log-1780554441868",
+      "date": "2026-06-04 06:27:21",
+      "user": "admin@toluck.vn",
+      "action": "Sửa người dùng",
+      "detail": "Đã chỉnh sửa thông tin người dùng ceo@toluck.vn (Thuý Võ)"
+    },
+    {
+      "id": "log-1780554335546",
+      "date": "2026-06-04 06:25:35",
+      "user": "admin@toluck.vn",
+      "action": "Đăng nhập",
+      "detail": "Đăng nhập thành công với vai trò ADMIN từ thiết bị."
+    },
+    {
+      "id": "log-1",
+      "date": "2026-06-04 12:00:00",
+      "user": "admin@toluck.vn",
+      "action": "Đăng nhập",
+      "detail": "Đăng nhập thành công từ IP 14.161.42.11"
+    },
+    {
+      "id": "log-2",
+      "date": "2026-06-04 12:15:00",
+      "user": "admin@toluck.vn",
+      "action": "Cấu hình SMTP",
+      "detail": "Đã chẩn đoán thông suốt SMTP mail.toluck.com.vn:465"
+    },
+    {
+      "id": "log-3",
+      "date": "2026-06-04 12:45:00",
+      "user": "staff@toluck.vn",
+      "action": "Gửi Email",
+      "detail": "Đã gửi mail báo cáo SWOT + PDF đính kèm sang hung.tran@annamfood.vn"
+    }
+  ],
+  "login_history": [
+    {
+      "id": "h-1780563480540",
+      "email": "admin@toluck.vn",
+      "time": "2026-06-04 08:58:00",
+      "ip": "127.0.0.1",
+      "status": "Thành công"
+    },
+    {
+      "id": "h-1780562690522",
+      "email": "admin@toluck.vn",
+      "time": "2026-06-04 08:44:50",
+      "ip": "127.0.0.1",
+      "status": "Thành công"
+    },
+    {
+      "id": "h-1780560698734",
+      "email": "daihai30@gmail.com",
+      "time": "2026-06-04 08:11:38",
+      "ip": "127.0.0.1",
+      "status": "Đăng ký thành công"
+    },
+    {
+      "id": "h-1780557039359",
+      "email": "admin@toluck.vn",
+      "time": "2026-06-04 07:10:39",
+      "ip": "127.0.0.1",
+      "status": "Thành công"
+    },
+    {
+      "id": "h-1780554335546",
+      "email": "admin@toluck.vn",
+      "time": "2026-06-04 06:25:35",
+      "ip": "127.0.0.1",
+      "status": "Thành công"
+    },
+    {
+      "id": "h-1",
+      "email": "admin@toluck.vn",
+      "time": "2026-06-04 12:00:00",
+      "ip": "14.161.42.11",
+      "status": "Thành công"
+    },
+    {
+      "id": "h-2",
+      "email": "staff@toluck.vn",
+      "time": "2026-06-04 11:20:00",
+      "ip": "115.79.138.25",
+      "status": "Thành công"
+    },
+    {
+      "id": "h-3",
+      "email": "ceo@toluck.vn",
+      "time": "2026-06-04 10:45:00",
+      "ip": "42.113.15.93",
+      "status": "Thành công"
+    }
+  ]
+}

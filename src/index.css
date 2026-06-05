@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;950&family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --color-brand-primary: #3b82f6;
+  --color-brand-primary-hover: #2563eb;
+  --color-brand-dark: #0f172a;
+  --color-brand-slate-light: #f8fafc;
+  --color-brand-slate-border: #e2e8f0;
+  --color-brand-slate-text: #64748b;
+  --color-brand-indigo: #3b82f6; /* Map original indigo to beautiful Sleek blue */
+  --color-brand-teal: #14b8a6;
+
+  /* Remap indigo classes to beautiful brand blue values */
+  --color-indigo-50: #eff6ff;
+  --color-indigo-100: #dbeafe;
+  --color-indigo-200: #bfdbfe;
+  --color-indigo-300: #93c5fd;
+  --color-indigo-400: #60a5fa;
+  --color-indigo-505: #3b82f6;
+  --color-indigo-500: #3b82f6;
+  --color-indigo-600: #2563eb;
+  --color-indigo-700: #1d4ed8;
+  --color-indigo-800: #1e40af;
+  --color-indigo-900: #1e3a8a;
+  --color-indigo-950: #172554;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    background-color: #f1f5f9;
+    color: #0f172a;
+  }
+}
+
+/* Custom Sleek theme helper utilities */
+.form-card-shadow {
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.05);
+}
+
+.animate-spin-hover:hover {
+  transform: rotate(45deg);
+  transition: transform 0.3s ease;
+}
+
+@media print {
+  body {
+    background-color: white;
+    font-size: 11pt;
+  }
+  .print\:hidden {
+    display: none !important;
+  }
+}
+

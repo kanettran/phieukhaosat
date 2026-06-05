@@ -1,0 +1,6 @@
+{
+  "name": "Khảo sát Nhu cầu Marketing - TOLUCK Agency",
+  "description": "Hệ thống đánh giá hiện trạng marketing, nhu cầu phòng marketing thuê ngoài và đề xuất chiến lược tối ưu tăng trưởng từ TOLUCK Agency.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
